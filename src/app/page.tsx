@@ -36,7 +36,7 @@ export default function HomePage() {
 
         <div className="mt-6 grid gap-3 border-t border-slate-100 pt-5 text-sm text-slate-500 sm:grid-cols-2">
   <div>
-    <span className="font-semibold text-slate-700">Assessment:</span> 72 questions across 6 areas
+    <span className="font-semibold text-slate-700">Assessment:</span> 36 questions per attempt, drawn from a bank of 72
   </div>
 
   <div>

@@ -5,9 +5,9 @@ import Button from "@/components/Button";
 import { useAssessment } from "@/context/AssessmentContext";
 
 const POINTS = [
-  "36 questions in total",
+  "36 questions per attempt, drawn from a bank of 72",
   "Six assessment categories, equally represented",
-  "Questions are randomly selected from a larger question bank",
+  "Questions are randomly selected each time you take the assessment",
   "Some questions include a confidence check",
   "All questions must be answered before you can view your results",
   "The assessment measures demonstrated understanding, judgement, and practical AI competence",
