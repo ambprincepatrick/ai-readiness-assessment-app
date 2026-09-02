@@ -42,7 +42,10 @@ export default function AssessmentIntroPage() {
         tools or searching online for answers. This is what makes your results meaningful.
       </div>
 
-      <Button className="mt-10 w-full px-8 py-3 text-base sm:w-auto" onClick={handleBegin}>
+      <Button
+  className="mt-10 w-full px-8 py-3 text-base font-semibold shadow-md hover:shadow-lg sm:w-auto"
+  onClick={handleBegin}
+>
         Begin Assessment
       </Button>
     </div>

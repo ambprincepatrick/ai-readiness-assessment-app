@@ -84,16 +84,7 @@ export default function ResultsPage() {
         </div>
       </section>
 
-      <section className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
-        <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
-          <h3 className="text-xs font-semibold uppercase tracking-wide text-emerald-700">Your Strongest Area</h3>
-          <p className="mt-2 text-base font-semibold text-emerald-900">{labelList(results.strongestAreas)}</p>
-        </div>
-        <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5">
-          <h3 className="text-xs font-semibold uppercase tracking-wide text-amber-700">Priority Development Area</h3>
-          <p className="mt-2 text-base font-semibold text-amber-900">{labelList(results.priorityAreas)}</p>
-        </div>
-      </section>
+      
 
       {results.criticalAreas.length > 0 && (
         <section className="mt-4 rounded-2xl border border-rose-300 bg-rose-50 p-5">

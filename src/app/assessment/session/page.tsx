@@ -62,9 +62,13 @@ export default function AssessmentSessionPage() {
           I confirm that I completed this assessment independently and did not use AI or external help.
         </label>
 
-        <Button className="mt-8 w-full px-8 py-3 text-base sm:w-auto" disabled={!confirmChecked} onClick={handleViewResults}>
-          View My Results
-        </Button>
+        <Button
+  className="mt-8 w-full px-8 py-3 text-base font-semibold shadow-md hover:shadow-lg sm:w-auto"
+  disabled={!confirmChecked}
+  onClick={handleViewResults}
+>
+  View My Results
+</Button>
       </div>
     );
   }
@@ -106,18 +110,23 @@ export default function AssessmentSessionPage() {
         )}
       </div>
 
-      <div className="mt-6 flex items-center justify-between">
-        <Button
-          variant="secondary"
-          onClick={goPrevious}
-          disabled={isFirstQuestion && phase === "question"}
-        >
-          Previous
-        </Button>
-        <Button onClick={goNext} disabled={!canAdvance}>
-          {phase === "confidence" ? "Continue" : "Next"}
-        </Button>
-      </div>
+      <div className="mt-6 grid grid-cols-2 gap-4">
+  <div className="flex justify-start">
+    <Button
+      variant="secondary"
+      onClick={goPrevious}
+      disabled={isFirstQuestion && phase === "question"}
+    >
+      Previous
+    </Button>
+  </div>
+
+  <div className="flex justify-end">
+    <Button onClick={goNext} disabled={!canAdvance}>
+      {phase === "confidence" ? "Continue" : "Next"}
+    </Button>
+  </div>
+</div>
 
       {allAnswered && questionNumber === totalQuestions && phase === "question" && (
         <p className="mt-4 text-center text-xs text-slate-400">All questions answered.</p>

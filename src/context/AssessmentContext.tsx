@@ -91,23 +91,42 @@ export function AssessmentProvider({ children }: { children: ReactNode }) {
   );
 
   const goNext = useCallback(() => {
-    setState((prev) => {
-      const question = prev.questions[prev.currentIndex];
-      if (!question) return prev;
+  setState((prev) => {
+    const question = prev.questions[prev.currentIndex];
 
-      // After answering a question, route through the confidence check first if required.
-      if (prev.phase === "question" && question.confidenceCheck) {
-        return { ...prev, phase: "confidence" };
+    if (!question) return prev;
+
+    if (prev.phase === "question") {
+      if (!prev.answers[question.id]) return prev;
+
+      if (question.confidenceCheck) {
+        return {
+          ...prev,
+          phase: "confidence",
+        };
       }
+    }
 
-      const isLast = prev.currentIndex === prev.questions.length - 1;
-      if (isLast) {
-        return { ...prev, phase: "completed" };
-      }
+    if (prev.phase === "confidence") {
+      if (!prev.confidenceResponses[question.id]) return prev;
+    }
 
-      return { ...prev, currentIndex: prev.currentIndex + 1, phase: "question" };
-    });
-  }, []);
+    const isLast = prev.currentIndex === prev.questions.length - 1;
+
+    if (isLast) {
+      return {
+        ...prev,
+        phase: "completed",
+      };
+    }
+
+    return {
+      ...prev,
+      currentIndex: prev.currentIndex + 1,
+      phase: "question",
+    };
+  });
+}, []);
 
   const goPrevious = useCallback(() => {
   setState((prev) => {

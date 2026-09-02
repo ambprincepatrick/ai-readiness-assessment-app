@@ -45,7 +45,10 @@ export default function HomePage() {
 </div>
       </div>
 
-      <Button className="mt-10 px-8 py-3 text-base" onClick={() => router.push("/assessment")}>
+      <Button
+  className="mt-10 px-8 py-3 text-base font-semibold shadow-md hover:shadow-lg"
+  onClick={() => router.push("/assessment")}
+>
         Start Assessment
       </Button>
     </div>
